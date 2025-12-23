@@ -2,21 +2,19 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import SearchIcon from "@/shared/ui/icons/SearchIcon";
+import UserIcon from "@/shared/ui/icons/UserIcon";
+import CloseIcon from "@/shared/ui/icons/CloseIcon";
+import MenuIcon from "@/shared/ui/icons/MenuIcon";
+import {navItems} from "@/widgets/header/navItems";
 
-const navItems = [
-    { label: 'Главная', href: '/' },
-    { label: 'О нас', href: '/about' },
-    { label: 'Услуги', href: '/services' },
-    { label: 'Блог', href: '/blog' },
-    { label: 'Контакты', href: '/contacts' },
-]
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false)
 
     return (
         <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto  px-4 ">
                 <div className="flex h-16 items-center justify-between">
 
                     {/* Logo */}
@@ -100,74 +98,5 @@ export default function Header() {
                 </div>
             )}
         </header>
-    )
-}
-
-/* =======================
-   SVG Icons (inline)
-======================= */
-
-function MenuIcon() {
-    return (
-        <svg
-            className="h-5 w-5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-        >
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-        </svg>
-    )
-}
-
-function CloseIcon() {
-    return (
-        <svg
-            className="h-5 w-5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-        >
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-        </svg>
-    )
-}
-
-function SearchIcon() {
-    return (
-        <svg
-            className="h-5 w-5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-        >
-            <circle cx="11" cy="11" r="7" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-        </svg>
-    )
-}
-
-function UserIcon() {
-    return (
-        <svg
-            className="h-5 w-5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-        >
-            <circle cx="12" cy="8" r="4" />
-            <path d="M4 20c0-4 4-6 8-6s8 2 8 6" />
-        </svg>
     )
 }
