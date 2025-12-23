@@ -13,14 +13,22 @@ const config: Config = {
             colors: {
                 background: 'hsl(var(--background))',
                 foreground: 'hsl(var(--foreground))',
+
+                primary: 'hsl(var(--primary))',
+                'primary-foreground': 'hsl(var(--primary-foreground))',
+
+                destructive: 'hsl(var(--destructive))',
+                'destructive-foreground': 'hsl(var(--destructive-foreground))',
                 danger: 'hsl(var(--danger))',
-                card: 'hsl(var(--card))',
-                'card-foreground': 'hsl(var(--card-foreground))',
+                'danger-foreground': 'hsl(var(--danger-foreground))',
+
                 border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',
                 ring: 'hsl(var(--ring))',
+                white: 'hsl(var(--white))',
             },
         },
+
     },
     plugins: [],
 }

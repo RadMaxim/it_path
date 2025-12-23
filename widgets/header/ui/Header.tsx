@@ -6,10 +6,12 @@ import SearchIcon from "@/shared/ui/icons/SearchIcon";
 import UserIcon from "@/shared/ui/icons/UserIcon";
 import CloseIcon from "@/shared/ui/icons/CloseIcon";
 import MenuIcon from "@/shared/ui/icons/MenuIcon";
-import {navItems} from "@/widgets/header/navItems";
+import {DesktopNavigation} from "@/widgets/header/ui/DesktopNavigation";
+import {MobileMenu} from "@/widgets/header/ui/MobileMenu";
+import {Button} from "@/shared/ui/button";
 
 
-export default function Header() {
+const Header=()=> {
     const [menuOpen, setMenuOpen] = useState(false)
 
     return (
@@ -28,36 +30,14 @@ export default function Header() {
                     </Link>
 
                     {/* Desktop navigation */}
-                    <nav className="hidden md:flex items-center gap-8">
-                        {navItems.map(item => (
-                            <Link
-                                key={item.href}
-                                href={item.href}
-                                className="text-sm font-medium text-gray-700 transition hover:text-blue-600"
-                            >
-                                {item.label}
-                            </Link>
-                        ))}
-                    </nav>
+                   <DesktopNavigation/>
 
                     {/* Right actions */}
                     <div className="flex items-center gap-3">
-                        {/* Search */}
-                        <button
-                            aria-label="Search"
-                            className="hidden md:flex h-9 w-9 items-center justify-center rounded-lg text-gray-600 transition hover:bg-gray-100 hover:text-gray-900"
-                        >
-                            <SearchIcon />
-                        </button>
+
 
                         {/* Auth */}
-                        <Link
-                            href="/auth/login"
-                            className="hidden md:flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-700"
-                        >
-                            <UserIcon />
-                            Войти
-                        </Link>
+                       <Button  value={"Контакты"} variant={"danger"} title={"Контакты"}/>
 
                         {/* Mobile menu */}
                         <button
@@ -73,30 +53,9 @@ export default function Header() {
 
             {/* Mobile menu */}
             {menuOpen && (
-                <div className="md:hidden border-t bg-white">
-                    <nav className="space-y-2 px-4 py-4">
-                        {navItems.map(item => (
-                            <Link
-                                key={item.href}
-                                href={item.href}
-                                onClick={() => setMenuOpen(false)}
-                                className="block rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100"
-                            >
-                                {item.label}
-                            </Link>
-                        ))}
-
-                        <div className="pt-3 border-t">
-                            <Link
-                                href="/auth/login"
-                                className="block rounded-lg bg-blue-600 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-700"
-                            >
-                                Войти
-                            </Link>
-                        </div>
-                    </nav>
-                </div>
+                <MobileMenu onItemClick={() => setMenuOpen(false)}/>
             )}
         </header>
     )
 }
+export default Header;
